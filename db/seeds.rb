@@ -27,6 +27,37 @@ result["drinks"].each do |drink|
   Ingredient.create!(name: drink["strIngredient1"])
 end
 
+Ingredient.create(name: "Olives")
+Ingredient.create(name: "Ice")
+
 puts "Great! Finished creating #{Ingredient.count} ingredients!"
 
+# 007 Vodka Martini
+
 puts "Creating 007 Vodka Martini cocktail..."
+
+@jbvm = Cocktail.create!(
+  name: '007 Vodka Martini'
+)
+# file = URI.open("https://media.fromthegrapevine.com/assets/images/2015/11/James-Bond-Martini.jpg.480x0_q71_crop-scale.jpg")
+# @jbvm.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
+
+Dose.create!(
+  description: "50 ml",
+  cocktail: @jbvm,
+  ingredient: Ingredient.find_by(name: "Vodka")
+)
+
+Dose.create!(
+  description: "10 ml",
+  cocktail: @jbvm,
+  ingredient: Ingredient.find_by(name: "Dry Vermouth")
+)
+
+Dose.create!(
+  description: "skewer 3 on cocktail pick",
+  cocktail: @jbvm,
+  ingredient: Ingredient.find_by(name: "Olives")
+)
+
+puts "finished creating 007 Vodka Martini"
