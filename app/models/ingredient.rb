@@ -3,5 +3,7 @@ class Ingredient < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   # association
   has_many :doses
+  # photo
+  # has_one_attached :photo
 
 end

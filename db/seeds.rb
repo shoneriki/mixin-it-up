@@ -28,3 +28,5 @@ result["drinks"].each do |drink|
 end
 
 puts "Great! Finished creating #{Ingredient.count} ingredients!"
+
+puts "Creating 007 Vodka Martini cocktail..."
