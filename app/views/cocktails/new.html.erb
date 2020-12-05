@@ -1,13 +1,27 @@
 <%= render 'shared/navbar' %>
 
-<div class="container-page">
-  <h1>Create cocktail</h1>
+<!-- Start of title -->
 
-  <%= simple_form_for (@cocktail) do |f| %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file %>
-    <%= f.submit %>
-  <% end %>
+<div class="title-cocktail-new">
+  <div class="container p-3">
+    <h1>Create Your New Cocktail</h1>
+  </div>
+</div>
+
+<!-- End of title -->
+
+<!-- Start of cocktail form -->
+
+<div class="cocktail-new">
+  <div class="container">
+    <%= simple_form_for (@cocktail) do |f| %>
+      <%= f.input :name %>
+      <%= f.input :photo, as: :file %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+
 
 </div>
-<% render "shared/footer" %>
+
+<!-- End of cocktail form -->

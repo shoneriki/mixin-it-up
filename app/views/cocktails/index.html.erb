@@ -1,11 +1,11 @@
-<%= render 'shared/navbar' %>
+<%#= render 'shared/navbar' %>
 
 <!-- banner -->
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url('<%= image_path('bar-banner.jpg') %>')">>
-  <div class="container">
+  <div class="container d-flex flex-column justify-content-center align-items-center">
   <h1>Mixin' It Up</h1>
-    <p>Sit back, relax, have a drink</p>
-    <%= link_to new_cocktail_path, class: "btn-add-cocktail" do  %>
+    <p>Sit Back, Relax, Have A Drink</p>
+    <%= link_to new_cocktail_path, class: "btn-add-cocktail-index" do  %>
       Add a cocktail
     <% end %>
   </div>
