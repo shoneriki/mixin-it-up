@@ -303,7 +303,7 @@ puts "Finished Negroni"
 puts "Creating Daiquiri..."
 
 @daiquiri = Cocktail.create!(
-  name: 'daiquiri',
+  name: 'Daiquiri',
 )
 file = URI.open("https://www.liquor.com/thmb/Nf13-yE6MXge88kgj6t6clnLgko=/720x540/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__04__23143458__daiquiri-720x720-recipe-09f1d5665a794eddbbfb997876736136.jpg")
 @daiquiri.photo.attach(io: file, filename: 'daiquiri.jpg', content_type: 'image/jpg')
