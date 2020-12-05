@@ -8,13 +8,13 @@
   margin: 48px auto;
 }
 
-.card-cocktail {
+.cocktail-card {
   overflow: hidden;
-  // background: $midnight-blue-photo-rgba;
+  background-color:black;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-.card-cocktail > img {
+.cocktail-card > img {
   height: auto;
   width: 100%;
   object-fit: cover;
@@ -22,9 +22,10 @@
 }
 
 
-.card-cocktail .cocktail-name {
+.cocktail-name {
   font-size: 16px;
   font-weight: bold;
+  color: gold;
   margin: 0;
   text-decoration: none;
   // color: rgb(250,250,250);
@@ -32,7 +33,7 @@
   transition: opacity 0.3s ease;
 }
 
-.card-cocktail .cocktail-name:hover {
+.cocktail-name:hover {
   opacity: 1;
 }
 

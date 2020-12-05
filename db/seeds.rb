@@ -37,7 +37,7 @@ puts "Great! Finished creating #{Ingredient.count} ingredients!"
 puts "Creating 007 Vodka Martini cocktail..."
 
 @jbvm = Cocktail.create!(
-  name: '007 Vodka Martini',
+  name: '007 Vesper Martini',
 )
 file = URI.open("https://media.gq-magazine.co.uk/photos/5d13937ab363fa1e2420c91f/master/pass/image.jpg")
 @jbvm.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
@@ -60,4 +60,77 @@ Dose.create!(
   ingredient: Ingredient.find_by(name: "Olives")
 )
 
-puts "finished creating 007 Vodka Martini"
+puts "finished 007 Vespar Martini"
+
+puts "Creating Mojito"
+
+@mojito = Cocktail.create!(
+  name: 'Mojito',
+)
+file = URI.open("https://images.immediate.co.uk/production/volatile/sites/30/2020/08/mojito-cocktails-150961e.jpg?quality=90&webp=true&resize=430,390")
+@mojito.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
+
+puts "Finished Mojito"
+
+puts "Creating Salty Dog"
+
+puts "Finished Salty Dog"
+
+puts "Creating Cosmopolitan"
+
+puts "Finished Cosmopolitan"
+
+puts "Creating Long Island Ice Tea..."
+
+@liit = Cocktail.create!(
+  name: 'Long Island Ice Tea',
+)
+file = URI.open("https://www.supergoldenbakes.com/wordpress/wp-content/uploads/2019/07/Long_island_iced_tea-1-4s.jpg")
+@liit.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
+
+Dose.create!(
+  description: "1/2 fluid ounce",
+  cocktail: @liit,
+  ingredient: Ingredient.find_by(name: "Vodka")
+)
+
+Dose.create!(
+  description: "1/2 fluid ounce",
+  cocktail: @liit,
+  ingredient: Ingredient.find_by(name: "Rum")
+)
+
+Dose.create!(
+  description: "1/2 fluid ounce",
+  cocktail: @liit,
+  ingredient: Ingredient.find_by(name: "Gin")
+)
+
+Dose.create!(
+  description: "1/2 fluid ounce",
+  cocktail: @liit,
+  ingredient: Ingredient.new(name: "Triple Sec")
+)
+
+Dose.create!(
+  description: "1 fluid ounce",
+  cocktail: @liit,
+  ingredient: Ingredient.new(name: "Sweet and Sour Mix")
+)
+
+Dose.create!(
+  description: "1 fluid ounce",
+  cocktail: @liit,
+  ingredient: Ingredient.new(name: "Cola")
+)
+
+Dose.create!(
+  description: "1 slice",
+  cocktail: @liit,
+  ingredient: Ingredient.find_by(name: "Lemon")
+)
+
+puts "finished creating Long Island Ice Tea"
+
+puts "finished creating #{Cocktail.count} cocktails and #{Ingredient.count} ingredients"
+# ingredient: Ingredient.new(name: "1 lime")

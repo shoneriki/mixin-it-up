@@ -5,7 +5,7 @@
   <div class="container">
   <h1>Mixin' It Up</h1>
     <p>Sit back, relax, have a drink</p>
-    <%= link_to new_cocktail_path, class: "btn btn-add-cocktail" do  %>
+    <%= link_to new_cocktail_path, class: "btn-add-cocktail" do  %>
       Add a cocktail
     <% end %>
   </div>
@@ -14,7 +14,7 @@
 <!-- cards -->
 <div class="cards">
   <% @cocktails.each do |cocktail| %>
-    <div class="card-cocktail d-flex flex-column align-items-center">
+    <div class="cocktail-card d-flex flex-column align-items-center">
       <%= cl_image_tag cocktail.photo.key, height: 460, width: 500, crop: :fill %>
       <h2><%= link_to cocktail.name, cocktail_path(cocktail), class: "cocktail-name"  %></h2>
     </div>
