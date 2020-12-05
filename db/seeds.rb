@@ -1,17 +1,7 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 require 'open-uri'
 require 'json'
 
-
-
-puts "Clearing out cocktail cabinet, the police are coming"
+puts "Clearing out cocktails and doses from cabinet, the police are coming"
 Cocktail.destroy_all
 puts "Clearing out the ingredients after the cocktails, nothing to see here"
 Ingredient.destroy_all
@@ -37,26 +27,38 @@ puts "Great! Finished creating #{Ingredient.count} ingredients!"
 puts "Creating 007 Vodka Martini cocktail..."
 
 @jbvm = Cocktail.create!(
-  name: '007 Vodka Martini',
+  name: '007 Vesper Martini',
 )
 file = URI.open("https://media.gq-magazine.co.uk/photos/5d13937ab363fa1e2420c91f/master/pass/image.jpg")
 @jbvm.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
 
 Dose.create!(
-  description: "50 ml",
+  description: "3 Ounces",
+  cocktail: @jbvm,
+  ingredient: Ingredient.find_by(name: "Gin")
+)
+
+Dose.create!(
+  description: "1 Ounce",
   cocktail: @jbvm,
   ingredient: Ingredient.find_by(name: "Vodka")
 )
 
 Dose.create!(
-  description: "10 ml",
+  description: "1/2 Ounce",
   cocktail: @jbvm,
-  ingredient: Ingredient.find_by(name: "Dry Vermouth")
+  ingredient: Ingredient.new(name: "Lillet Blanc")
 )
 
-puts "finished 007 Vespar Martini"
+Dose.create!(
+  description: "Garnish",
+  cocktail: @jbvm,
+  ingredient: Ingredient.new(name: "Lemon Peel")
+)
 
-puts "Creating Mojito"
+puts "Finished 007 Vesper Martini"
+
+puts "Creating Mojito..."
 
 @mojito = Cocktail.create!(
   name: 'Mojito',
@@ -77,7 +79,7 @@ Dose.create!(
 )
 
 Dose.create!(
-  description: "small handful of",
+  description: "Small handful",
   cocktail: @mojito,
   ingredient: Ingredient.new(name: "Mint Leaves")
 )
@@ -89,14 +91,14 @@ Dose.create!(
 )
 
 Dose.create!(
-  description: "as much as you want",
+  description: "As much as you want",
   cocktail: @mojito,
   ingredient: Ingredient.new(name: "Soda Water")
 )
 
 puts "Finished Mojito"
 
-puts "Creating Salty Dog"
+puts "Creating Salty Dog..."
 
 @salty_dog = Cocktail.create!(
   name: 'Salty Dog',
@@ -123,20 +125,20 @@ Dose.create!(
 )
 
 Dose.create!(
-  description: "garnish: slice of ",
+  description: "Garnish: slice",
   cocktail: @salty_dog,
   ingredient: Ingredient.new(name: "Grapefruit")
 )
 
 Dose.create!(
-  description: "garnish: rim with",
+  description: "Garnish: rim with",
   cocktail: @salty_dog,
   ingredient: Ingredient.new(name: "Sea Salt")
 )
 
 puts "Finished Salty Dog"
 
-puts "Creating Cosmopolitan"
+puts "Creating Cosmopolitan..."
 
 @cosmopolitan= Cocktail.create!(
   name: 'Cosmopolitan',
@@ -169,11 +171,10 @@ Dose.create!(
 )
 
 Dose.create!(
-  description: "garnish: wedge of ",
+  description: "Garnish: wedge",
   cocktail: @cosmopolitan,
   ingredient: Ingredient.find_by(name: "Lime")
 )
-
 
 
 puts "Finished Cosmopolitan"
@@ -184,7 +185,7 @@ puts "Creating Long Island Ice Tea..."
   name: 'Long Island Ice Tea',
 )
 file = URI.open("https://www.supergoldenbakes.com/wordpress/wp-content/uploads/2019/07/Long_island_iced_tea-1-4s.jpg")
-@liit.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
+@liit.photo.attach(io: file, filename: 'liit.jpg', content_type: 'image/jpg')
 
 Dose.create!(
   description: "1/2 fluid ounce",
@@ -228,7 +229,110 @@ Dose.create!(
   ingredient: Ingredient.find_by(name: "Lemon")
 )
 
-puts "finished creating Long Island Ice Tea"
+puts "Finished creating Long Island Ice Tea"
 
-puts "finished creating #{Cocktail.count} cocktails and #{Ingredient.count} ingredients"
+puts "Creating Dry Martini..."
+
+@dry_martini = Cocktail.create!(
+  name: 'Dry Martini',
+)
+file = URI.open("https://www.liquor.com/thmb/UXprV3UhqbTaJjB0MKSkJ09gNuE=/720x720/smart/filters:no_upscale()/dry-martini-720x720-primary-a6de08f8cd584ad88520287922578bcb.jpg")
+@dry_martini.photo.attach(io: file, filename: 'dry-martini.jpg', content_type: 'image/jpg')
+
+Dose.create!(
+  description: "2 1/2 ounces",
+  cocktail: @dry_martini,
+  ingredient: Ingredient.find_by(name: "Gin")
+)
+
+Dose.create!(
+  description: "1/2 ounce",
+  cocktail: @dry_martini,
+  ingredient: Ingredient.find_by(name: "Dry Vermouth")
+)
+
+Dose.create!(
+  description: "1 dash",
+  cocktail: @dry_martini,
+  ingredient: Ingredient.new(name: "Orange Bitters")
+)
+
+Dose.create!(
+  description: "Garnish: twist",
+  cocktail: @dry_martini,
+  ingredient: Ingredient.find_by(name: "Lemon Peel")
+)
+
+
+puts "Finished Dry Martini"
+
+puts "Creating Negroni..."
+
+@negroni = Cocktail.create!(
+  name: 'Negroni',
+)
+file = URI.open("https://www.liquor.com/thmb/FpQjWZNtBBC8PoW8aPfUj7cysYg=/720x720/filters:fill(auto,1)/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__05__08110806__negroni-720x720-recipe-7c1b747a616f4659af4008d025ab55df.jpg")
+@negroni.photo.attach(io: file, filename: 'negroni.jpg', content_type: 'image/jpg')
+
+Dose.create!(
+  description: "1 ounce",
+  cocktail: @negroni,
+  ingredient: Ingredient.find_by(name: "Gin")
+)
+
+Dose.create!(
+  description: "1 ounce",
+  cocktail: @negroni,
+  ingredient: Ingredient.new(name: "Campari")
+)
+
+Dose.create!(
+  description: "1 ounce",
+  cocktail: @negroni,
+  ingredient: Ingredient.find_by(name: "Sweet Vermouth")
+)
+
+Dose.create!(
+  description: "Garnish: peel",
+  cocktail: @negroni,
+  ingredient: Ingredient.find_by(name: "Orange")
+)
+
+puts "Finished Negroni"
+
+puts "Creating Daiquiri..."
+
+@daiquiri = Cocktail.create!(
+  name: 'daiquiri',
+)
+file = URI.open("https://www.liquor.com/thmb/Nf13-yE6MXge88kgj6t6clnLgko=/720x540/smart/filters:no_upscale()/__opt__aboutcom__coeus__resources__content_migration__liquor__2018__04__23143458__daiquiri-720x720-recipe-09f1d5665a794eddbbfb997876736136.jpg")
+@daiquiri.photo.attach(io: file, filename: 'daiquiri.jpg', content_type: 'image/jpg')
+
+Dose.create!(
+  description: "2 ounces",
+  cocktail: @daiquiri,
+  ingredient: Ingredient.new(name: "Light Rum")
+)
+
+Dose.create!(
+  description: "1 ounce",
+  cocktail: @daiquiri,
+  ingredient: Ingredient.find_by(name: "Lime Juice")
+)
+
+Dose.create!(
+  description: "3/4 ounce",
+  cocktail: @daiquiri,
+  ingredient: Ingredient.new(name: "Demerara Sugar Syrup")
+)
+
+Dose.create!(
+  description: "Garnish: twist",
+  cocktail: @daiquiri,
+  ingredient: Ingredient.find_by(name: "Lime")
+)
+
+puts "Finished Daiquiri"
+
+puts "Great! Finished creating #{Cocktail.count} cocktails and #{Ingredient.count} ingredients"
 # ingredient: Ingredient.new(name: "1 lime")
