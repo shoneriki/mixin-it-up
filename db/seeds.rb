@@ -104,6 +104,36 @@ puts "Creating Salty Dog"
 file = URI.open("https://www.liquor.com/thmb/1wy0FDwUvFOp9CvAXL4UaDv1Xuw=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2016__04__20190606__salty-dog-720x720-recipe-6498f403e1bc4159bc270ad5275e749e.jpg")
 @salty_dog.photo.attach(io: file, filename: 'salty-dog.jpg', content_type: 'image/jpg')
 
+Dose.create!(
+  description: "1 1/2 ounces",
+  cocktail: @salty_dog,
+  ingredient: Ingredient.find_by(name: "Vodka")
+)
+
+Dose.create!(
+  description: "3 ounces",
+  cocktail: @salty_dog,
+  ingredient: Ingredient.find_by(name: "Grapefruit Juice")
+)
+
+Dose.create!(
+  description: "4 teaspoons",
+  cocktail: @salty_dog,
+  ingredient: Ingredient.new(name: "Coarse Sea Salt")
+)
+
+Dose.create!(
+  description: "garnish: slice of ",
+  cocktail: @salty_dog,
+  ingredient: Ingredient.new(name: "Grapefruit")
+)
+
+Dose.create!(
+  description: "garnish: rim with",
+  cocktail: @salty_dog,
+  ingredient: Ingredient.new(name: "Sea Salt")
+)
+
 puts "Finished Salty Dog"
 
 puts "Creating Cosmopolitan"
