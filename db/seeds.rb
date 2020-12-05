@@ -113,7 +113,7 @@ Dose.create!(
 Dose.create!(
   description: "3 ounces",
   cocktail: @salty_dog,
-  ingredient: Ingredient.find_by(name: "Grapefruit Juice")
+  ingredient: Ingredient.new(name: "Grapefruit Juice")
 )
 
 Dose.create!(
@@ -143,6 +143,38 @@ puts "Creating Cosmopolitan"
 )
 file = URI.open("https://images.immediate.co.uk/production/volatile/sites/30/2020/08/cosmopolitan-7a6874f.jpg?quality=90&webp=true&resize=440,400")
 @cosmopolitan.photo.attach(io: file, filename: 'cosmopolitan.jpg', content_type: 'image/jpg')
+
+Dose.create!(
+  description: "1 1/2 ounces",
+  cocktail: @cosmopolitan,
+  ingredient: Ingredient.new(name: "Citrus Vodka")
+)
+
+Dose.create!(
+  description: "1 ounce",
+  cocktail: @cosmopolitan,
+  ingredient: Ingredient.new(name: "Cointreau")
+)
+
+Dose.create!(
+  description: "1/2 ounces",
+  cocktail: @cosmopolitan,
+  ingredient: Ingredient.new(name: "Lime Juice")
+)
+
+Dose.create!(
+  description: "1 dash",
+  cocktail: @cosmopolitan,
+  ingredient: Ingredient.new(name: "Cranberry Juice")
+)
+
+Dose.create!(
+  description: "garnish: wedge of ",
+  cocktail: @cosmopolitan,
+  ingredient: Ingredient.find_by(name: "Lime")
+)
+
+
 
 puts "Finished Cosmopolitan"
 
