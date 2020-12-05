@@ -37,10 +37,10 @@ puts "Great! Finished creating #{Ingredient.count} ingredients!"
 puts "Creating 007 Vodka Martini cocktail..."
 
 @jbvm = Cocktail.create!(
-  name: '007 Vodka Martini'
+  name: '007 Vodka Martini',
 )
-# file = URI.open("https://media.fromthegrapevine.com/assets/images/2015/11/James-Bond-Martini.jpg.480x0_q71_crop-scale.jpg")
-# @jbvm.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
+file = URI.open("https://media.gq-magazine.co.uk/photos/5d13937ab363fa1e2420c91f/master/pass/image.jpg")
+@jbvm.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
 
 Dose.create!(
   description: "50 ml",

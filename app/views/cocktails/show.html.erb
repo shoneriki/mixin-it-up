@@ -1,10 +1,20 @@
 <%= render 'shared/navbar' %>
 
 <!-- cocktail description (photo, title, description) -->
-<div class="cocktail-section">
+<div class="cocktail-show-section">
   <div class="container pt-5 pb-3">
     <div class="row">
+      <div class="col-5">
 
+        <%  if @cocktail.photo.attached? %>
+          <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill, class: "cocktail-show-photo" %>
+        <% else %>
+          <img src="https://image.flaticon.com/icons/png/512/194/194937.png", class="cocktail-show-photo">
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>
+
+<!-- End of cocktail description-->
