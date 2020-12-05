@@ -87,8 +87,8 @@ puts "Creating Cosmopolitan"
 @cosmopolitan= Cocktail.create!(
   name: 'Cosmopolitan',
 )
-file = URI.open("https://www.liquor.com/thmb/1wy0FDwUvFOp9CvAXL4UaDv1Xuw=/735x0/__opt__aboutcom__coeus__resources__content_migration__liquor__2016__04__20190606__salty-dog-720x720-recipe-6498f403e1bc4159bc270ad5275e749e.jpg")
-@cosmopolitan.photo.attach(io: file, filename: 'salty-dog.jpg', content_type: 'image/jpg')
+file = URI.open("https://images.immediate.co.uk/production/volatile/sites/30/2020/08/cosmopolitan-7a6874f.jpg?quality=90&webp=true&resize=440,400")
+@cosmopolitan.photo.attach(io: file, filename: 'cosmopolitan.jpg', content_type: 'image/jpg')
 
 puts "Finished Cosmopolitan"
 
