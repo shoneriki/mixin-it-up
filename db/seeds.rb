@@ -32,12 +32,12 @@ Ingredient.create(name: "Ice")
 
 puts "Great! Finished creating #{Ingredient.count} ingredients!"
 
-# 007 Vodka Martini
+# 007 Vesper Martini
 
 puts "Creating 007 Vodka Martini cocktail..."
 
 @jbvm = Cocktail.create!(
-  name: '007 Vesper Martini',
+  name: '007 Vodka Martini',
 )
 file = URI.open("https://media.gq-magazine.co.uk/photos/5d13937ab363fa1e2420c91f/master/pass/image.jpg")
 @jbvm.photo.attach(io: file, filename: 'jbvm.jpg', content_type: 'image/jpg')
@@ -54,12 +54,6 @@ Dose.create!(
   ingredient: Ingredient.find_by(name: "Dry Vermouth")
 )
 
-Dose.create!(
-  description: "skewer 3 on cocktail pick",
-  cocktail: @jbvm,
-  ingredient: Ingredient.find_by(name: "Olives")
-)
-
 puts "finished 007 Vespar Martini"
 
 puts "Creating Mojito"
@@ -69,6 +63,36 @@ puts "Creating Mojito"
 )
 file = URI.open("https://images.immediate.co.uk/production/volatile/sites/30/2020/08/mojito-cocktails-150961e.jpg?quality=90&webp=true&resize=430,390")
 @mojito.photo.attach(io: file, filename: 'mojito.jpg', content_type: 'image/jpg')
+
+Dose.create!(
+  description: "Juice",
+  cocktail: @mojito,
+  ingredient: Ingredient.find_by(name: "Lime")
+)
+
+Dose.create!(
+  description: "1 tsp",
+  cocktail: @mojito,
+  ingredient: Ingredient.new(name: "Granulated Sugar")
+)
+
+Dose.create!(
+  description: "small handful of",
+  cocktail: @mojito,
+  ingredient: Ingredient.new(name: "Mint Leaves")
+)
+
+Dose.create!(
+  description: "60 ml",
+  cocktail: @mojito,
+  ingredient: Ingredient.new(name: "White Rum")
+)
+
+Dose.create!(
+  description: "as much as you want",
+  cocktail: @mojito,
+  ingredient: Ingredient.new(name: "Soda Water")
+)
 
 puts "Finished Mojito"
 
