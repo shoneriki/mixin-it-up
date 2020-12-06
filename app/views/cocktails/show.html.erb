@@ -5,16 +5,58 @@
   <div class="container pt-5 pb-3">
     <div class="row">
       <div class="col-5">
-
         <%  if @cocktail.photo.attached? %>
           <%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill, class: "cocktail-show-photo" %>
         <% else %>
           <img src="https://image.flaticon.com/icons/png/512/194/194937.png", class="cocktail-show-photo">
         <% end %>
-
+      </div>
+      <div class="col-7">
+        <h1><%= @cocktail.name %></h1>
       </div>
     </div>
   </div>
 </div>
-
 <!-- End of cocktail description-->
+
+<!-- Ingredient section-->
+<div class="ingredient-section">
+  <div class="container p-3">
+    <div class="row">
+      <!-- ingredient list-->
+      <div class="col-6">
+        <h2>What goes in?</h2>
+        <ul class="ingredient-list">
+          <% @cocktail.doses.each do |dose| %>
+            <li class="container d-flex justify-content-between">
+              <%= "#{dose.description} of #{dose.ingredient.name.downcase}" %>
+              <%= link_to dose_path(dose), class: "dose-delete-icon", method: :delete, data: { confirm: "Delete dose #{dose.ingredient.name.downcase}?"} do %>
+                <i class="fas fa-trash"></i>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <div class="col-6">
+        <!-- ingredient addition-->
+        <h1 class="title-ingredient-add">Add your ingredient</h1>
+        <!-- Form to add dose/ingredient to cocktail-->
+        <%= simple_form_for [@cocktail, @dose]  do |f| %>
+          <%= f.association :ingredient, label: 'Ingredient', collection: Ingredient.order(name: :asc), include_blank: false, label_html: { class: 'ingredient-form-label'} %>
+          <%= f.input :description, label: "Quantity?", placeholder: "ex. 10ml / 1/2 oz / 1 slice...", label_html: { class: 'ingredient-form-label'} %>
+          <%= f.submit "Add Ingredient/Dose"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End of Ingredient section-->
+
+<!-- button back to home/index page -->
+<div class="button-back-to-list-section">
+  <div class="container pb-5 pt-3">
+    <%= link_to "Back To Cocktail List", cocktails_path, class: "btn-add-cocktail-index"  %>
+  </div>
+</div>
+
+<!--  end button to home/index page-->
