@@ -1,0 +1,61 @@
+.btn-back-to-list {
+  background-color: $black;
+  padding: 8px 0;
+}
+
+.cocktail-show-section{
+  color: $white;
+}
+
+.cocktail-show-photo{
+  border-radius: 8px;
+  box-shadow: 0 0 16px $white-rgba;
+}
+
+.ingredients-section{
+  color: $white;
+  margin-bottom: 64px;
+  margin-top: 32px;
+}
+
+.ingredients-section h2{
+  padding-bottom: 16px;
+}
+
+.ingredients-list {
+  padding-left: 0px;
+}
+
+.ingredients-list p{
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: $black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  opacity: .8;
+  font-size: 18px;
+  background-color: $white;
+
+}
+
+.ingredients-list-container .dose-delete-icon {
+  color: $dark-blue;
+  opacity: 0.6;
+  text-decoration: none;
+  font-size: 20px;
+  padding: 0px 10px;
+  transition: opacity 0.3s ease;
+}
+
+.dose-delete-icon:hover {
+  opacity: 1;
+}
+
+.form-wrap{
+  align-items: stretch;
+  margin: auto;
+  padding: 16px;
+}

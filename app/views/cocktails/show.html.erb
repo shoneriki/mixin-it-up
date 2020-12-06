@@ -20,32 +20,34 @@
 <!-- End of cocktail description-->
 
 <!-- Ingredient section-->
-<div class="ingredient-section">
-  <div class="container p-3">
+<div class="ingredients-section">
+  <div class="container p-5">
     <div class="row">
       <!-- ingredient list-->
       <div class="col-6">
         <h2>What goes in?</h2>
-        <ul class="ingredient-list">
+        <div class="ingredients-list">
           <% @cocktail.doses.each do |dose| %>
-            <li class="container d-flex justify-content-between">
+            <p class="container d-flex justify-content-between">
               <%= "#{dose.description} of #{dose.ingredient.name.downcase}" %>
-              <%= link_to dose_path(dose), class: "dose-delete-icon", method: :delete, data: { confirm: "Delete dose #{dose.ingredient.name.downcase}?"} do %>
+              <%= link_to dose_path(dose), class: "ingredient-list-container dose-delete-icon", method: :delete, data: { confirm: "Take out the #{dose.ingredient.name.downcase}?"} do %>
                 <i class="fas fa-trash"></i>
               <% end %>
-            </li>
+            </p>
           <% end %>
-        </ul>
+        </div>
       </div>
       <div class="col-6">
         <!-- ingredient addition-->
-        <h1 class="title-ingredient-add">Add your ingredient</h1>
+        <h1 class="title-ingredient-add">Add your ingredients</h1>
         <!-- Form to add dose/ingredient to cocktail-->
-        <%= simple_form_for [@cocktail, @dose]  do |f| %>
-          <%= f.association :ingredient, label: 'Ingredient', collection: Ingredient.order(name: :asc), include_blank: false, label_html: { class: 'ingredient-form-label'} %>
-          <%= f.input :description, label: "Quantity?", placeholder: "ex. 10ml / 1/2 oz / 1 slice...", label_html: { class: 'ingredient-form-label'} %>
-          <%= f.submit "Add Ingredient/Dose"%>
-        <% end %>
+        <div class="form-wrap">
+          <%= simple_form_for [@cocktail, @dose]  do |f| %>
+            <%= f.input :description, label: "Quantity?", placeholder: "ex. 10ml / 1/2 oz / 1 slice...", label_html: { class: 'ingredient-form-label'} %>
+            <%= f.association :ingredient, label: 'Ingredient', collection: Ingredient.order(name: :asc), include_blank: false, label_html: { class: 'ingredient-form-label'} %>
+            <%= f.submit "Add Ingredient/Dose"%>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -53,9 +55,9 @@
 <!-- End of Ingredient section-->
 
 <!-- button back to home/index page -->
-<div class="button-back-to-list-section">
+<div class="btn-back-to-list-section">
   <div class="container pb-5 pt-3">
-    <%= link_to "Back To Cocktail List", cocktails_path, class: "btn-add-cocktail-index"  %>
+    <%= link_to "Back To Cocktail List", cocktails_path, class: "btn-add-cocktail"  %>
   </div>
 </div>
 

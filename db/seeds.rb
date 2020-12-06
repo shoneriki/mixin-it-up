@@ -254,7 +254,7 @@ Dose.create!(
 Dose.create!(
   description: "1 dash",
   cocktail: @dry_martini,
-  ingredient: Ingredient.new(name: "Orange Bitters")
+  ingredient: Ingredient.find_by(name: "Orange bitters")
 )
 
 Dose.create!(
