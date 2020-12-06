@@ -11,11 +11,15 @@ body {
   color: $white;
   text-align: center;
   font-size: 48px;
+  font-family: $cursive-font;
+  font-weight: bolder;
 }
 
 .cocktail-new {
   color: $white;
   background-color: $black;
+  font-family: $cursive-font;
+  font-weight: bolder;
 }
 
 .cocktail-new h2 {
