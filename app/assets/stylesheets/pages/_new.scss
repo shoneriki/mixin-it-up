@@ -1,6 +1,9 @@
+body {
+  background-color: $black;
+}
 
 .title-cocktail-new{
-  background: $dark-blue;
+  background: $black;
   // margin-top: 48px;
 }
 
@@ -12,6 +15,7 @@
 
 .cocktail-new {
   color: $white;
+  background-color: $black;
 }
 
 .cocktail-new h2 {

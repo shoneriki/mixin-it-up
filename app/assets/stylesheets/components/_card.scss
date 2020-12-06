@@ -3,14 +3,14 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
   padding: 16px;
-  background-color: $dark-blue;
+  background-color: $black;
   // background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3));
   margin: 48px auto;
 }
 
 .cocktail-card {
   overflow: hidden;
-  background-color: $dark-blue-rgba;
+  background-color: $black-rgba;
   border-radius: 16px;
 }
 
